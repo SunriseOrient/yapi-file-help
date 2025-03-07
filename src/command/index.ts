@@ -9,6 +9,8 @@ import { OpenUrlHandle } from "./handles/OpenUrlHandle"
 import { RefreshHandle } from "./handles/refreshHandle"
 import { ResetApiListHandle } from "./handles/resetApiListHandle"
 import { TitleSwitchHandle } from "./handles/titleSwitchHandle"
+import { createAllApiByTemplHandle } from "./handles/createAllApiByTemplHandle"
+import { createApiByTemplHandle } from "./handles/createApiByTemplHandle"
 
 const menus = [
     // ----------------- explorer/context 开始 -----------------------
@@ -64,8 +66,18 @@ const menus = [
         command: "extension.collapseAll",
         handle: ExpandSwitchHandle
     },
+    {
+        // 通过模版生成全部 Api 至剪贴板
+        command: "extension.copyAllApiByTempl",
+        handle: createAllApiByTemplHandle
+    },
     // ----------------- view/title 结束 -----------------------
     // ----------------- view/item/context 开始 -----------------
+    {
+        // 通过模版生成 Api 至剪贴板
+        command: "extension.copyApiByTempl",
+        handle: createApiByTemplHandle
+    },
     {
         // 复制api接口到剪贴板
         command: "extension.copyApi",

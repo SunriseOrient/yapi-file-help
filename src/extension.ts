@@ -45,6 +45,10 @@ export async function initEnv() {
 		GlobalStore.getStore().setGlobalContextValue("button.collapseAll", true)
 		GlobalStore.getStore().setGlobalContextValue("button.expandAll", false)
 
+		const template = GlobalStore.getStore().getStaticValue("template")
+		GlobalStore.getStore().setGlobalContextValue("button.copyApiByTempl", !!template)
+		GlobalStore.getStore().setGlobalContextValue("button.copyAllApiByTempl", !!template)
+
 		// 注册侧边菜单
 		vscode.window.registerTreeDataProvider("yapi-menu-view", YapiMenuView.getYapiMenuView())
 
@@ -61,6 +65,9 @@ export async function initEnv() {
 
 		GlobalStore.getStore().setGlobalContextValue("button.collapseAll", false)
 		GlobalStore.getStore().setGlobalContextValue("button.expandAll", false)
+
+		GlobalStore.getStore().setGlobalContextValue("button.copyApiByTempl", false)
+		GlobalStore.getStore().setGlobalContextValue("button.copyAllApiByTempl", false)
 	}
 }
 

@@ -2,7 +2,7 @@
   "name": "yapi-file-help",
   "displayName": "Yapi File Help",
   "description": "Yapi文件创建工具",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "publisher": "SunRising",
   "icon": "asset/logo.png",
   "repository": "https://github.com/SunRisingChang/yapi-file-help.git",
@@ -44,6 +44,11 @@
         "icon": "$(clippy)"
       },
       {
+        "command": "extension.copyAllApiByTempl",
+        "title": "通过模版生成全部 Api 至剪贴板",
+        "icon": "$(notebook-template)"
+      },
+      {
         "command": "extension.findApi",
         "title": "查找 Api",
         "icon": "$(search)"
@@ -67,6 +72,11 @@
         "command": "extension.copyApi",
         "title": "生成 Api 至剪贴板",
         "icon": "$(files)"
+      },
+      {
+        "command": "extension.copyApiByTempl",
+        "title": "通过模版生成 Api 至剪贴板",
+        "icon": "$(notebook-template)"
       },
       {
         "command": "extension.copyInterFace",
@@ -128,25 +138,35 @@
           "group": "navigation@5"
         },
         {
+          "command": "extension.copyAllApiByTempl",
+          "when": "view =~ /yapi-menu/ && button.copyAllApiByTempl",
+          "group": "navigation@6"
+        },
+        {
           "command": "extension.refresh",
           "when": "view =~ /yapi-menu/",
-          "group": "navigation@6"
+          "group": "navigation@7"
         },
         {
           "command": "extension.expandAll",
           "when": "view =~ /yapi-menu/ && button.collapseAll",
-          "group": "navigation@7"
+          "group": "navigation@8"
         },
         {
           "command": "extension.collapseAll",
           "when": "view =~ /yapi-menu/ && button.expandAll",
-          "group": "navigation@8"
+          "group": "navigation@9"
         }
       ],
       "view/item/context": [
         {
           "command": "extension.copyApi",
           "when": "view =~ /yapi-menu/ && viewItem == file",
+          "group": "inline"
+        },
+        {
+          "command": "extension.copyApiByTempl",
+          "when": "view =~ /yapi-menu/ && viewItem == file && button.copyApiByTempl",
           "group": "inline"
         },
         {

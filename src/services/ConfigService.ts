@@ -44,6 +44,10 @@ export class ConfigService {
         "token",
         packageObj["yapiConfig"]["token"]
       );
+      GlobalStore.getStore().setStaticValue(
+        "template",
+        packageObj["template"]
+      );
       return true;
     } catch (error: any) {
       console.log(error);
